@@ -1,0 +1,17 @@
+{
+  "name": "apiai-test",
+  "version": "1.0.0",
+  "description": "api.ai test",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apiai": "^4.0.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "node-uuid": "^1.4.8"
+  }
+}
