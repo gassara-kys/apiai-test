@@ -25,7 +25,9 @@ faqRoutes.post('/question', function(req, res) {
         for(var msg of aiResponse.result.fulfillment.messages){
             message = message + msg.speech + "\n";
         }
-        return res.status(statusCode).json({
+        return res
+            .status(statusCode)
+            .json({
             success  : aiResponse.status.errorType,
             question : aiResponse.result.resolvedQuery,
             action   : aiResponse.result.action,

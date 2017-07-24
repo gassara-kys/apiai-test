@@ -6,7 +6,6 @@ node.jsでAPIサーバーを立ててapi.aiへの会話を仲介します。
 質問を加工したり、回答を解析したり編集したりするようです。
 api.aiクライアントのクライアントトークンは環境変数などに設定して起動するイメージです。
 
-
 ## Usage
 
 - APIAIのクライアントアクセストークンを環境変数に設定
@@ -54,4 +53,10 @@ $ curl -v -H "Content-type: application/json" \
     -X POST \
     -d '{"question":"いいラーニングについて教えて！"}' \
     http://localhost:8080/api/question
+```
+
+- ブラウザで確認（sampleページ）
+
+```bash
+http://localhost:8080/sample
 ```

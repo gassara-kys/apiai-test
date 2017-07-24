@@ -10,12 +10,21 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
+// CORSを許可する
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // =======================
 // router
 // =======================
-var faqRoutes = require('./app/api/faq/index');
+var faqRoutes = require('./routes/api/faq/index');
 app.use('/api', faqRoutes);
 
+var sampleRoutes = require('./routes/sample_chat/index');
+app.use('/sample', sampleRoutes);
 
 // =======================
 // start the server
