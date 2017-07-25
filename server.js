@@ -17,6 +17,9 @@ app.use(function(req, res, next) {
   next();
 });
 
+// static contents
+app.use('/static', express.static('public'));
+
 // =======================
 // router
 // =======================
