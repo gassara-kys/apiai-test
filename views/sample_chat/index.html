@@ -4,82 +4,8 @@
 	<title>API Example</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		var baseUrl = "http://localhost:8080/api/question";
-		$(document).ready(function() {
-			$("#btn-input").keypress(function(event) {
-				if (event.which == 13) {
-					if($("#btn-input").val() === "") return;
-					event.preventDefault();
-					send();
-				}
-			});
-		});
-
-		function send() {
-			var text = $("#btn-input").val();
-			var elm  = document.createElement('div');
-			elm.className = 'row msg_container base_sent';
-			elm.innerHTML = 
-				'<div class="col-md-10 col-xs-10"> \
-					<div class="messages msg_sent"> \
-						<p>' + text + '</p> \
-					</div> \
-				</div> \
-				<div class="col-md-2 col-xs-2 avatar"> \
-					<img src="/static/img/perkun.png" class=" img-responsive "> \
-				</div>';
-
-			$(".panel-body")[0].appendChild(elm);
-			$.ajax({
-				type: "POST",
-				url: baseUrl ,
-				contentType: "application/json; charset=utf-8",
-				dataType: "json",
-				data: JSON.stringify({ question: text }),
-				success: function(data) {
-					setResponse(data.answer);
-				},
-				error: function() {
-					setResponse("Internal Server Error");
-				}
-			});
-			//setResponse("Loading...");
-		}
-		function setResponse(answer) {
-			var elm  = document.createElement('div');
-			elm.className = 'row msg_container base_receive';
-			elm.innerHTML = 
-				'<div class="col-md-2 col-xs-2 avatar"> \
-					<img src="/static/img/pernyan.png" class=" img-responsive "> \
-				</div> \
-				<div class="col-xs-10 col-md-10"> \
-					<div class="messages msg_receive"> \
-					<p>' + answer + '</p> \
-					</div> \
-				</div>';
-
-			$("#btn-input").val('');
-			$(".panel-body")[0].appendChild(elm);
-		}
-	</script>
-
-	<!--<style type="text/css">
-		body { width: 500px; margin: 0 auto; text-align: center; margin-top: 20px; }
-		div {  position: absolute; }
-		input { width: 400px; }
-		button { width: 50px; }
-		textarea { width: 100%; }
-	</style>-->
-
 </head>
 <body>
-
-	<!--<div>
-		<input id="input" type="text">
-		<br>Response<br>
-    <textarea id="response" cols="40" rows="20"></textarea>
-	</div>-->
 
 	<div>
 		<p>こんにちは</p>
@@ -122,7 +48,7 @@
 					</div>
 					<div class="panel-footer">
 						<div class="input-group">
-							<input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="message here..." />
+							<input id="input-txt" type="text" class="form-control input-sm chat_input" placeholder="message here..." />
 							<!--<span class="input-group-btn">
 							<button class="btn btn-primary btn-sm" id="btn-chat">Send</button>
 							</span>-->
